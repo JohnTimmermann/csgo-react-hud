@@ -5,6 +5,7 @@
     flex-direction: column;
     opacity: 1;
     transition: opacity 0.75s;
+    gap: 15px;
     &.CT {
         .player .hp_bar {
             background-color: var(--color-new-ct);
@@ -39,10 +40,18 @@
                 .secondary_weapon {
                     padding-right: 10px;
                 }
+                .hp_bar {
+                    left: 0px;
+                }
                 
             }
             .dead-stats {
                 right: 8px;
+            }
+            .player_loadout {
+                .hp_bar {
+                    left: 0px;
+                }
             }
         }
     }
@@ -54,9 +63,8 @@
                 left: 8px;
             }
             .player_data {
-                flex-direction: row-reverse;
-                .hp_bar {
-                    align-self: flex-end;
+                .player_stats {
+                    flex-direction: row-reverse;
                 }
                 .row {
                     flex-direction: row-reverse;
@@ -79,19 +87,26 @@
                         margin-left: auto;
                         justify-content: flex-end;
                     } 
-                    .weapon {
-                        transform: scaleX(-1);
-                    }
                 }
                 .avatar {
                     justify-content: flex-start;
+                }
+            }
+            .player_loadout {
+                flex-direction: row-reverse;
+                .hp_bar {
+                    right: 0px;
+                    align-self: flex-end;
+                }
+                .weapon {
+                    transform: scaleX(-1);
                 }
             }
         }
     }  
     .player {
         width: 645px;
-        height: 70px;
+        height: 105px;
         margin-bottom: 4px;
         display: flex;
         flex-direction: row;
@@ -170,42 +185,42 @@
             }
         }
         .player_data {
-            background-color: var(--sub-panel-color);
-            width: 415px;
+            width: 200px;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             position: relative;
             height: 100%;
+            gap: 5px;
             .player_stats {
                 display: flex;
-                flex-direction: column;
-                flex: 1;
+                flex-direction: row;
+                flex: 2;
                 min-width: 0;
-                .hp_bar {
-                    height: 2px;
-                    &.low {
-                        background-color: red;
-                    }
-                }
+                background-color: var(--sub-panel-color);
                 .row {
                     flex: 1;
                     display: flex;
                     position: relative;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
                     svg.weapon {
                         filter: invert(45%);
                         &.active {
                             filter: invert(0);
                         }
                     }
-                    .hp_background, .hp_background_2 {
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        z-index: 0;
-                    }
-                    .hp_background_2 {
-                        background-color: var(--color-bomb);
-                        transition: width 0.75s 1.5s;
+                    .values {
+                        display: flex;
+                        flex-direction: row;
+                        flex: 1;
+                        color: white;
+                        .stat-value {
+                            display: flex;
+                            flex: 1;
+                            align-items: center;
+                            justify-content: center;
+                        }
                     }
                     .armor_and_utility {
                         width: 39px;
@@ -250,14 +265,6 @@
                             opacity: 0.6;
                             font-size:15px;
                         }
-                        svg.weapon {
-                            max-height: 30px;
-                            width: auto;
-                            margin-left: 5px;
-                            margin-right: 5px;
-                            max-width: 100px;
-                            height: 30px;
-                        }
                     }
                     .money {
                         width: 60px;
@@ -266,15 +273,6 @@
                         display: flex;
                         align-items: center;
                         justify-content: flex-start;
-                    }
-                    .grenades {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                        svg.grenade {
-                            max-height: 20px;
-                            height: 20px;
-                        }
                     }
                     .health {
                         width: 49px;
@@ -319,6 +317,47 @@
                 }
             }
         }
+        .player_loadout {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex: 1;
+            position: relative;
+            background-color: var(--sub-panel-color);
+            z-index: -2;
+        }
+            .hp_bar {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                transition: width 1s 0.5s;
+                transition: width .5s;
+                &.low {
+                    background-color: red;
+                }
+            }
+            .grenades {
+                display: flex;
+                flex: 1;
+                align-items: center;
+                justify-content: space-around;
+                svg.grenade {
+                    max-height: 20px;
+                    height: 20px;
+                }
+            }
+            svg.weapon {
+                max-height: 30px;
+                width: auto;
+                margin-left: 5px;
+                margin-right: 5px;
+                max-width: 100px;
+                height: 30px;
+                flex: 1;
+            }
     }
 }
 
