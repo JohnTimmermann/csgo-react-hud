@@ -32,7 +32,6 @@
                     justify-content: flex-start;
                 }
                 .money {
-                    margin-right: auto;
                 }
                 .username .roundkills-container {
                     right: 115px;
@@ -84,7 +83,6 @@
                         justify-content: flex-end;
                     }
                     .money {
-                        margin-left: auto;
                         justify-content: flex-end;
                     } 
                 }
@@ -190,7 +188,6 @@
             flex-direction: column;
             position: relative;
             height: 100%;
-            gap: 5px;
             .player_stats {
                 display: flex;
                 flex-direction: row;
@@ -215,9 +212,9 @@
                         flex-direction: row;
                         flex: 1;
                         color: white;
+                        gap: 5px;
                         .stat-value {
                             display: flex;
-                            flex: 1;
                             align-items: center;
                             justify-content: center;
                         }
@@ -267,12 +264,11 @@
                         }
                     }
                     .money {
-                        width: 60px;
                         color: var(--color-moneys);
                         font-weight: 600;
                         display: flex;
                         align-items: center;
-                        justify-content: flex-start;
+                        justify-content: center;
                     }
                     .health {
                         width: 49px;
