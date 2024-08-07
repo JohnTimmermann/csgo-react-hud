@@ -1,7 +1,7 @@
 .observed {
     position: fixed;
-    width: 620px;
-    bottom: 120px;
+    width: 550px;
+    bottom: 95px;
     margin-left: -310px;
     left: 50%;
     height: 86px;
@@ -73,7 +73,8 @@
                 align-items: center;
                 justify-content: center;
                 svg {
-                    max-width: 30px;
+                    width: 30px;
+                    height: 30px;
                     fill: white;
                 }
             }
@@ -157,6 +158,16 @@
                 margin-right: 5px;
             }
         }
+        .icon {
+            display: flex;
+            width: 30px;
+            align-items: center;
+            justify-content: center;
+            svg {
+                max-height:30px;
+                max-width:22px;
+            }
+        }
         
     }
     .sidebar {
@@ -185,13 +196,10 @@
         position: relative;
         width: 140px;
         height: 140px;
-        img {
-            border-radius:50%;
-        }
     }
     
     &.T {
-        border-bottom: 6px solid var(--color-new-t);
+        // border-bottom: 6px solid var(--color-new-t);
         .main_row .username_container .username, .stats_row .ammo .ammo_counter .ammo_reserve {
             color: var(--color-new-t)
         }
@@ -209,7 +217,7 @@
         }
     }
     &.CT {
-        border-bottom: 6px solid var(--color-new-ct);
+        // border-bottom: 6px solid var(--color-new-ct);
         .main_row .username_container .username, .stats_row .ammo .ammo_counter .ammo_reserve {
             color: var(--color-new-ct)
         }

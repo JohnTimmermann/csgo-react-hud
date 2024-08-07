@@ -25,6 +25,12 @@ import { ReactComponent as Suicide } from './../assets/images/suicide.svg';
 import { ReactComponent as Wallbang } from './../assets/images/wallbang.svg';
 import LogoCT  from './../assets/images/logo_CT_default.png';
 import LogoT  from './../assets/images/logo_T_default.png';
+import playerCT from './../assets/images/player_CT_default.png';
+import playerT from './../assets/images/player_T_default.png';
+import KillIcon_T from './../assets/images/icon_kills_t.png';
+import KillIcon_CT from './../assets/images/icon_kills_ct.png';
+import KillIcon_dead from './../assets/images/icon_kills_dead.png';
+import KillIcon_default from './../assets/images/icon_kills.png';
 import { ReactComponent as SmallBomb }  from "./../assets/images/bomb.svg";
 
 
@@ -57,5 +63,11 @@ export {
     Timer,
     LogoCT,
     LogoT,
+    playerCT,
+    playerT,
+    KillIcon_T,
+    KillIcon_CT,
+    KillIcon_dead,
+    KillIcon_default,
 }
     

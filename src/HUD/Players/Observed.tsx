@@ -62,9 +62,11 @@ export default class Observed extends React.Component<{ player: Player | null, v
 					<TeamLogo team={player.team} height={35} width={35} />
 					<div className="username_container">
 						<div className="username">{player.name}</div>
-						<div className="real_name">{player.realName}</div>
+						{/* <div className="real_name">{player.realName}</div> */}
 					</div>
-					<div className="flag">{countryName ? <img src={`${apiUrl}files/img/flags/${countryName.replace(/ /g, "-")}.png`} alt={countryName} /> : ''}</div>
+					<div className="armor-icon icon">
+							{player.state.helmet ? <ArmorHelmet /> : <ArmorFull />}
+						</div>
 					<div className="grenade_container">
 						{grenades.map(grenade => <React.Fragment key={`${player.steamid}_${grenade.name}_${grenade.ammo_reserve || 1}`}>
 							<Weapon weapon={grenade.name} active={grenade.state === "active"} isGrenade />
@@ -79,10 +81,6 @@ export default class Observed extends React.Component<{ player: Player | null, v
 							<HealthFull />
 						</div>
 						<div className="health text">{player.state.health}</div>
-						<div className="armor-icon icon">
-							{player.state.helmet ? <ArmorHelmet /> : <ArmorFull />}
-						</div>
-						<div className="health text">{player.state.armor}</div>
 					</div>
 					<div className="statistics">
 						<Statistic label={"K"} value={stats.kills} />

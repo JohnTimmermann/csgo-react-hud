@@ -1,7 +1,7 @@
 {
-    "name":"LHM CS:GO Default HUD",
-    "version":"2.5.2",
-    "author":"Lexogrine",
+    "name":"JTMythic HUD",
+    "version":"1.0.0",
+    "author":"JTMythic",
     "legacy": false,
     "radar": true,
     "killfeed": true,

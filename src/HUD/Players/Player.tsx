@@ -5,6 +5,7 @@ import Avatar from "./Avatar";
 import Armor from "./../Indicators/Armor";
 import Bomb from "./../Indicators/Bomb";
 import Defuse from "./../Indicators/Defuse";
+import RoundKills from "../Indicators/RoundKills";
 
 interface IProps {
   player: I.Player,
@@ -75,46 +76,35 @@ const Player = ({ player, isObserved }: IProps) => {
   const isLeft = player.team.orientation === "left";
   return (
     <div className={`player ${player.state.health === 0 ? "dead" : ""} ${isObserved ? 'active' : ''}`}>
+      <div className="player_slot">{player.observer_slot}</div>
       <div className="player_data">
-        {/* <Avatar steamid={player.steamid} height={57} width={57} showSkull={false} showCam={false} sidePlayer={true} /> */}
-        <div className="dead-stats">
-          <div className="labels">
-            <div className="stat-label">K</div>
-            <div className="stat-label">A</div>
-            <div className="stat-label">D</div>
-          </div>
-          {/* <div className="values">
-            <div className="stat-value">{player.stats.kills}</div>
-            <div className="stat-value">{player.stats.assists}</div>
-            <div className="stat-value">{player.stats.deaths}</div>
-          </div> */}
-        </div>
         <div className="player_stats">
-          <div className="row">
-            <Avatar steamid={player.steamid} height={57} width={57} showSkull={false} showCam={false} sidePlayer={true} />
+          <div className="roundkills-container-dead">
+            <RoundKills player={player}/>
+          </div>
+          <div className="health_row">
+            <Avatar steamid={player.steamid} height={100} width={100} showSkull={false} showCam={false} sidePlayer={true} team={player.team.side} />
+            <RoundKills player={player}/>
+            <div className="utility">
+              <Bomb player={player} />
+              <Defuse player={player} />
+            </div>
             <div className="health">
               {player.state.health}
-              <div className="armor_and_utility">
-                <Armor  player={player} />
+              <div className="armor">
+                <Armor player={player} />
               </div>
             </div>
-            <div className="username">
-              {/* <div>{isLeft ? <span>{player.observer_slot}</span> : null} {!isLeft ? <span>{player.observer_slot}</span> : null}</div> */}
-              {/* {primary || secondary ? <Weapon weapon={primary ? primary.name : secondary.name} active={primary ? primary.state === "active" : secondary.state === "active"} /> : ""} */}
-              {player.state.round_kills ? <div className="roundkills-container">{player.state.round_kills}</div> : null}
-            </div>
           </div>
-          <div className="row">
+          <div className="stats_row">
             <div className="username">
               {player.name}
             </div>
             <div className="values">
-              <div className="stat-value">K {player.stats.kills}</div>
-              <div className="stat-value">D {player.stats.deaths}</div>
-            </div>
-            <div className="armor_and_utility">
-              <Bomb player={player} />
-              <Defuse player={player} />
+              <div className="stat-label">K</div>
+              <div className="stat-value">{player.stats.kills}</div>
+              <div className="stat-label">D</div>
+              <div className="stat-value">{player.stats.deaths}</div>
             </div>
             <div className="money">${player.state.money}</div>
             {/* <div className="secondary_weapon">{primary && secondary ? <Weapon weapon={secondary.name} active={secondary.state === "active"} /> : ""}</div> */}
@@ -122,6 +112,7 @@ const Player = ({ player, isObserved }: IProps) => {
           <div className="active_border"></div>
         </div>
         <div className="player_loadout">
+          <div className="roundDMG">DMG in Round: {player.state.round_totaldmg}</div>
           <div className={`hp_bar ${player.state.health <= 20 ? 'low' : ''}`} style={{ width: `${player.state.health}%` }}></div>
           <div className="grenades">
               {grenades.map(grenade => (

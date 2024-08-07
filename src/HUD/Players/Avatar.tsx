@@ -4,7 +4,7 @@ import PlayerCamera from "./../Camera/Camera";
 
 import { avatars } from './../../api/avatars';
 
-import { Skull } from './../../assets/Icons';
+import { Skull, playerCT, playerT } from './../../assets/Icons';
 
 interface IProps {
   steamid: string,
@@ -13,16 +13,22 @@ interface IProps {
   width?: number,
   showSkull?: boolean,
   showCam?: boolean,
-  sidePlayer?: boolean
+  sidePlayer?: boolean,
+  team?: string,
 }
 export default class Avatar extends React.Component<IProps> {
 
   render() {
-    const { showCam, steamid, width, height, showSkull, sidePlayer } = this.props;
+    const { showCam, steamid, width, height, showSkull, sidePlayer, team} = this.props;
     //const url = avatars.filter(avatar => avatar.steamid === this.props.steamid)[0];
     const avatarData = avatars[this.props.steamid];
     if (!avatarData || !avatarData.url) {
-      return null;
+      const defaultImage = team === 'T' ? playerT : playerCT;
+      return( 
+        <div className={'avatar'}>
+          <img src={defaultImage} height={height} width={width} alt={"Avatar"} />
+        </div>
+      );
     }
 
     return (
