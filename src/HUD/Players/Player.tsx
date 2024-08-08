@@ -112,7 +112,7 @@ const Player = ({ player, isObserved }: IProps) => {
           <div className="active_border"></div>
         </div>
         <div className="player_loadout">
-          <div className="roundDMG">DMG in Round: {player.state.round_totaldmg}</div>
+          <div className="roundDMG">ADR: {player.state.adr}</div>
           <div className={`hp_bar ${player.state.health <= 20 ? 'low' : ''}`} style={{ width: `${player.state.health}%` }}></div>
           <div className="grenades">
               {grenades.map(grenade => (

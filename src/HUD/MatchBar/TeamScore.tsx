@@ -18,9 +18,9 @@ export default class TeamScore extends React.Component<IProps> {
     return (
       <>
         <div className={`team ${orientation} ${team.side}`}>
-          <div className="team-name">{team.name}</div>
+          <div className="team-name">{team.name.toUpperCase()}</div>
           <TeamLogo team={team} />
-          <div className="round-thingy"><div className="inner"></div></div>
+          {/* <div className="round-thingy"><div className="inner"></div></div> */}
         </div>
         <PlantDefuse timer={timer} side={orientation} />
         <WinIndicator team={team} show={showWin}/>

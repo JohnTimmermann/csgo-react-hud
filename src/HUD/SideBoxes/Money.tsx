@@ -20,23 +20,25 @@ export default class Money extends React.PureComponent<Props> {
 	render() {
 		return (
 			<div className={`moneybox ${this.props.side} ${this.props.team} ${this.props.show ? "show" : "hide"}`}>
+                <div className='loss-eqipment-container'>
+                    <div className="money_container">
+                        <div className="title">Loss Bonus</div>
+                        <div className="value">${this.props.loss}</div>
+                    </div>
+                    {/* <div className="money_container">
+                        <div className="title">Team Money</div>
+                        <div className="value">${this.props.money}</div>
+                    </div> */}
+                    <div className="money_container">
+                        <div className="title">Equip. Value</div>
+                        <div className="value">${this.props.equipment}</div>
+                    </div>
+                </div>
                 <div className="loss_container">
                     <LossBox side={this.props.team} active={(this.props.loss-1400)/500 >= 4} />
                     <LossBox side={this.props.team} active={(this.props.loss-1400)/500 >= 3} />
                     <LossBox side={this.props.team} active={(this.props.loss-1400)/500 >= 2} />
                     <LossBox side={this.props.team} active={(this.props.loss-1400)/500 >= 1} />
-                </div>
-                <div className="money_container">
-                    <div className="title">Loss Bonus</div>
-                    <div className="value">${this.props.loss}</div>
-                </div>
-                <div className="money_container">
-                    <div className="title">Team Money</div>
-                    <div className="value">${this.props.money}</div>
-                </div>
-                <div className="money_container">
-                    <div className="title">Equipment Value</div>
-                    <div className="value">${this.props.equipment}</div>
                 </div>
             </div>
 		);

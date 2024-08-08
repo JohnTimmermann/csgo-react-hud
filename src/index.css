@@ -38,7 +38,7 @@ code {
 
 :root {
   --main-panel-color: rgba(12, 15, 18, 0.85);
-  --sub-panel-color: rgba(0, 0, 0, 0.959);
+  --sub-panel-color: rgba(0, 0, 0, 0.89);
   --white-dull: rgba(10, 5, 5, 0.25);
   --white-full: rgba(250, 250, 250, 1);
   --white-half: rgba(250, 250, 250, 0.5);

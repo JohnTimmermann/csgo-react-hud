@@ -45,6 +45,20 @@ export default class Observed extends React.Component<{ player: Player | null, v
 		 
 		return damageInRounds.reduce((a, b) => a + b, 0) / (this.props.round - 1);
 	}
+
+	getHealthBarWidth = (health: number, min: number, max: number) => {
+		if (health > min && health <= max) {
+			return health + "%";
+		}
+		if (health <= min) {
+			return "0%";
+		}
+		if (health > max) {
+			return "100%";
+		}
+		return "0%";
+	}
+	
 	render() {
 		if (!this.props.player) return '';
 		const { player } = this.props;
@@ -57,44 +71,64 @@ export default class Observed extends React.Component<{ player: Player | null, v
 		const countryName = country ? getCountry(country) : null;
 		return (
 			<div className={`observed ${player.team.side}`}>
+				<div className="obs-avatar-container">
+					{<Avatar steamid={player.steamid} height={140} width={140} showCam={this.state.showCam} slot={player.observer_slot} team={player.team.side}/>}
+				</div>
 				<div className="main_row">
-					{<Avatar steamid={player.steamid} height={140} width={140} showCam={this.state.showCam} slot={player.observer_slot} />}
-					<TeamLogo team={player.team} height={35} width={35} />
-					<div className="username_container">
-						<div className="username">{player.name}</div>
-						{/* <div className="real_name">{player.realName}</div> */}
-					</div>
-					<div className="armor-icon icon">
+					<div className="obs-top">
+						<div className="username_container">
+							{/* <TeamLogo team={player.team} height={35} width={35} /> */}
+							<div className="username">{player.name}</div>						</div>
+						<div className="armor-icon icon">
 							{player.state.helmet ? <ArmorHelmet /> : <ArmorFull />}
 						</div>
-					<div className="grenade_container">
-						{grenades.map(grenade => <React.Fragment key={`${player.steamid}_${grenade.name}_${grenade.ammo_reserve || 1}`}>
-							<Weapon weapon={grenade.name} active={grenade.state === "active"} isGrenade />
-							{
-								grenade.ammo_reserve === 2 ? <Weapon weapon={grenade.name} active={grenade.state === "active"} isGrenade /> : null}
-						</React.Fragment>)}
 					</div>
-				</div>
-				<div className="stats_row">
-					<div className="health_armor_container">
-						<div className="health-icon icon">
-							<HealthFull />
+					<div className="obs-middle">
+						<div className="stats_row">
+							<div className="statistics">
+								<Statistic label={"K"} value={stats.kills} />
+								<Statistic label={"A"} value={stats.assists} />
+								<Statistic label={"D"} value={stats.deaths} />
+								<Statistic label={"ADR"} value={player.state.adr} />
+							</div>
 						</div>
-						<div className="health text">{player.state.health}</div>
-					</div>
-					<div className="statistics">
-						<Statistic label={"K"} value={stats.kills} />
-						<Statistic label={"A"} value={stats.assists} />
-						<Statistic label={"D"} value={stats.deaths} />
-						<Statistic label={"K/D"} value={ratio.toFixed(2)} />
-					</div>
-					<div className="ammo">
-						<div className="ammo_icon_container">
-							<Bullets />
+							<div className="grenade_container">
+							{grenades.map(grenade => <React.Fragment key={`${player.steamid}_${grenade.name}_${grenade.ammo_reserve || 1}`}>
+								<Weapon weapon={grenade.name} active={grenade.state === "active"} isGrenade />
+								{
+									grenade.ammo_reserve === 2 ? <Weapon weapon={grenade.name} active={grenade.state === "active"} isGrenade /> : null}
+							</React.Fragment>)}
 						</div>
-						<div className="ammo_counter">
-							<div className="ammo_clip">{(currentWeapon && currentWeapon.ammo_clip) || "-"}</div>
-							<div className="ammo_reserve">/{(currentWeapon && currentWeapon.ammo_reserve) || "-"}</div>
+					</div>
+					<div className="obs-bottom">
+						<div className="obs-health">
+							<div className="health_armor_container">
+								<div className="health-icon icon"><HealthFull /></div>
+								<div className="health text">{player.state.health}</div>
+							</div>
+							<div className="healthbar-container">
+								<div className="obs-healthblock">
+									<div className="obs-hpbar1" style={{ width: this.getHealthBarWidth(player.state.health, 0, 25) }}/>
+								</div>
+								<div className="obs-healthblock">
+									<div className="obs-hpbar2" style={{ width: this.getHealthBarWidth(player.state.health, 25, 50) }}/>
+								</div>
+								<div className="obs-healthblock">
+									<div className="obs-hpbar3" style={{ width: this.getHealthBarWidth(player.state.health, 50, 75) }}/>
+								</div>
+								<div className="obs-healthblock">
+									<div className="obs-hpbar4 " style={{ width: this.getHealthBarWidth(player.state.health, 75, 100) }}/>
+								</div>
+							</div>
+						</div>
+						<div className="ammo">
+							<div className="ammo_counter">
+								<div className="ammo_clip">{(currentWeapon && currentWeapon.ammo_clip) || "-"}</div>
+								<div className="ammo_reserve">/{(currentWeapon && currentWeapon.ammo_reserve) || "-"}</div>
+							</div>
+							<div className="ammo_icon_container">
+									<Bullets />
+								</div>
 						</div>
 					</div>
 				</div>

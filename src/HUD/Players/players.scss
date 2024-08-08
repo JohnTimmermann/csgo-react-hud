@@ -5,7 +5,7 @@
     flex-direction: column;
     opacity: 1;
     transition: opacity 0.75s;
-    gap: 5px;
+    gap: 4px;
     &.CT {
         .player .hp_bar, .player_slot {
             background: var(--gradient--ct);
@@ -102,8 +102,8 @@
     .player_slot {
         position: absolute;
         display: flex;
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
         justify-content: center;
         align-items: center;
         z-index: 1;
@@ -112,7 +112,6 @@
         font-weight: 600;
     }  
     .player {
-        width: 645px;
         height: 110px;
         margin-bottom: 4px;
         display: flex;
@@ -292,11 +291,18 @@
                         align-items: center;
                         z-index: 1;
                         justify-content: space-between;
-                        .bomb_indicator, .defuse_indicator {
+                        .bomb_indicator {
                             svg {
                                 width: 20px;
                                 height: 20px;
-                                fill: white;
+                                fill: rgb(30, 255, 0);
+                            }
+                        }
+                        .defuse_indicator {
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                                fill: rgb(255, 255, 255);
                             }
                         }
                     }
@@ -489,7 +495,7 @@
             justify-content: center;
             font-size:30px;
             color: white;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0,0,0,0.75);
         }
         .team_counter {
             background-color: rgba(0,0,0,0.75);
