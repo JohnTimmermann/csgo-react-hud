@@ -6,11 +6,11 @@ import TeamLogo from "./../MatchBar/TeamLogo";
 import "./observed.scss";
 import { apiUrl } from './../../api/api';
 import { getCountry } from "./../countries";
-import { ArmorHelmet, ArmorFull, HealthFull, Bullets } from './../../assets/Icons';
+import { ArmorHelmet, ArmorFull, HealthFull, Bullets, KillIcon, Skull, AssistCT, AssistT } from './../../assets/Icons';
 import { Veto } from "../../api/interfaces";
 import { actions } from "../../App";
 
-class Statistic extends React.PureComponent<{ label: string; value: string | number, }> {
+class Statistic extends React.PureComponent<{ label: string | React.ReactNode; value: string | number, }> {
 	render() {
 		return (
 			<div className="stat">
@@ -69,6 +69,7 @@ export default class Observed extends React.Component<{ player: Player | null, v
 		const { stats } = player;
 		const ratio = stats.deaths === 0 ? stats.kills : stats.kills / stats.deaths;
 		const countryName = country ? getCountry(country) : null;
+		const assistIcon = player.team.side == "T" ? AssistT : AssistCT;
 		return (
 			<div className={`observed ${player.team.side}`}>
 				<div className="obs-avatar-container">
@@ -86,9 +87,9 @@ export default class Observed extends React.Component<{ player: Player | null, v
 					<div className="obs-middle">
 						<div className="stats_row">
 							<div className="statistics">
-								<Statistic label={"K"} value={stats.kills} />
-								<Statistic label={"A"} value={stats.assists} />
-								<Statistic label={"D"} value={stats.deaths} />
+								<Statistic label={<KillIcon/>} value={stats.kills} />
+								<Statistic label={<img src={assistIcon}/>} value={stats.assists} />
+								<Statistic label={<Skull/>} value={stats.deaths} />
 								<Statistic label={"ADR"} value={player.state.adr} />
 							</div>
 						</div>

@@ -10,16 +10,16 @@
         .player .hp_bar, .player_slot {
             background: var(--gradient--ct);
         }
-        .stat-label {
-            color: var(--color-new-ct)
+        .player_skull, .stat-label{
+            fill: var(--color-new-ct);
         }
     }
     &.T {
         .player .hp_bar, .player_slot {
             background: var(--gradient--t);
         }
-        .stat-label {
-            color: var(--color-new-t)
+        .player_skull, .stat-label {
+            fill: var(--color-new-t);
         }
     }
     &.hide {
@@ -112,7 +112,7 @@
         font-weight: 600;
     }  
     .player {
-        height: 110px;
+        height: 105px;
         margin-bottom: 4px;
         display: flex;
         flex-direction: row;
@@ -172,11 +172,16 @@
                             display: flex;
                             align-items: center;
                             justify-content: center;
+                            font-size: 18px;
                         }
                         .stat-label {
                             display: flex;
                             align-items: center;
                             justify-content: center;
+                            svg {
+                                width: 18px;
+                                height: 18px;
+                            }
                         }
                     }
                     .username {
@@ -243,12 +248,9 @@
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);
-                            img {
+                            svg {
                                 max-height: 23px;
                                 max-width: 23px;
-                                background-repeat: no-repeat;
-                                background-size: contain;
-                                background-position: center;
                             }
                         }
                         .player_round_kills_text {
@@ -357,6 +359,9 @@
             .player_data {
                 width: 150px;
                 transition: width 0.5s;
+                .stat-label {
+                    fill: #b2b2b2;
+                }
                 .roundkills-container-dead {
                     top: 3px;
                     width: 25px;
@@ -371,12 +376,10 @@
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
-                        img {
+                        svg {
                             max-height: 23px;
                             max-width: 23px;
-                            background-repeat: no-repeat;
-                            background-size: contain;
-                            background-position: center;
+                            fill: #b2b2b2;
                         }
                     }
                     .dead_player_round_kills_text {

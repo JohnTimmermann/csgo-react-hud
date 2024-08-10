@@ -6,6 +6,7 @@ import Armor from "./../Indicators/Armor";
 import Bomb from "./../Indicators/Bomb";
 import Defuse from "./../Indicators/Defuse";
 import RoundKills from "../Indicators/RoundKills";
+import { KillIcon, Skull } from "../../assets/Icons";
 
 interface IProps {
   player: I.Player,
@@ -101,9 +102,9 @@ const Player = ({ player, isObserved }: IProps) => {
               {player.name}
             </div>
             <div className="values">
-              <div className="stat-label">K</div>
+              <div className="stat-label"><KillIcon/></div>
               <div className="stat-value">{player.stats.kills}</div>
-              <div className="stat-label">D</div>
+              <div className="stat-label"><Skull/></div>
               <div className="stat-value">{player.stats.deaths}</div>
             </div>
             <div className="money">${player.state.money}</div>

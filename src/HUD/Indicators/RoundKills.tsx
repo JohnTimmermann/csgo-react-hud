@@ -1,7 +1,6 @@
 import React from 'react';
 import { Player } from 'csgogsi-socket';
-import {KillIcon_CT, KillIcon_dead} from '../../assets/Icons';
-import {KillIcon_T} from '../../assets/Icons';
+import {KillIcon} from '../../assets/Icons';
 export default class RoundKills extends React.Component<{ player: Player }> {
     render() {
         const { player } = this.props;
@@ -12,7 +11,7 @@ export default class RoundKills extends React.Component<{ player: Player }> {
 
             <div className="roundkills-container">
               <div className="player_skull">
-                <img src={player.team.side === "T" ? KillIcon_T : KillIcon_CT}/>
+                <KillIcon/>
               </div>
               <div className="player_round_kills_text">{player.state.round_kills}</div>
             </div>
@@ -22,7 +21,7 @@ export default class RoundKills extends React.Component<{ player: Player }> {
 
             <div className="roundkills-container-dead">
               <div className="dead_player_skull">
-                <img src={KillIcon_dead}/>
+                <KillIcon/>
               </div>
               <div className="dead_player_round_kills_text">{player.state.round_kills}</div>
             </div>

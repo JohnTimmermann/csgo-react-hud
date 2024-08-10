@@ -45,7 +45,7 @@ code {
   --color-gray: rgba(191, 191, 191, 1.0);
   --color-moneys: #48ff00;
   --dev-purple: rgba(200, 0, 255, 1);
-  --gradient--t: linear-gradient(0deg, rgba(255,160,0,1) 0%, rgba(224,141,0,1) 100%);
+  --gradient--t: linear-gradient(180deg, rgba(255,160,0,1) 0%, rgba(224,141,0,1) 100%);
   --gradient--ct: linear-gradient(180deg, rgba(0,141,224,1) 0%, rgba(1,159,253,1) 100%);
   --color-t: rgba(255, 160, 0, 1.0);
   --color-ct: rgba(1, 159, 253, 1.0);
