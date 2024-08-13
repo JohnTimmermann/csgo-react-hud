@@ -71,6 +71,8 @@ export default class Observed extends React.Component<{ player: Player | null, v
 		const countryName = country ? getCountry(country) : null;
 		const assistIcon = player.team.side == "T" ? AssistT : AssistCT;
 		return (
+			<>
+			<div className="observed-background"/>
 			<div className={`observed ${player.team.side}`}>
 				<div className="obs-avatar-container">
 					{<Avatar steamid={player.steamid} height={140} width={140} showCam={this.state.showCam} slot={player.observer_slot} team={player.team.side}/>}
@@ -134,6 +136,7 @@ export default class Observed extends React.Component<{ player: Player | null, v
 					</div>
 				</div>
 			</div>
+		</>
 		);
 	}
 }

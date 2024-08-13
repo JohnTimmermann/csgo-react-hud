@@ -1,3 +1,15 @@
+// .observed-background {
+//     position: fixed;
+//     width: 575px;
+//     bottom: 95px;
+//     margin-left: -310px;
+//     left: 50%;
+//     height: 85px;
+//     display: flex;
+//     color: white;
+//     background-color: var(--sub-panel-color);
+//     transform: skew(342deg);
+// }
 .observed {
     position: fixed;
     width: 550px;
@@ -8,6 +20,7 @@
     display: flex;
     color: white;
     background-color: var(--sub-panel-color);
+    // border-radius: var(--panel-radius);
 
     .obs-avatar-container {
         display: flex;

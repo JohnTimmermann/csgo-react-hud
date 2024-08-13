@@ -108,26 +108,26 @@ export default class Layout extends React.Component<Props, State> {
         <div className={"boxes left"}>
           <UtilityLevel side={left.side} players={game.players} show={isFreezetime && !forceHide} />
           <SideBox side="left" hide={forceHide} />
-          {/* <MoneyBox
+          <MoneyBox
             team={left.side}
             side="left"
             loss={Math.min(left.consecutive_round_losses * 500 + 1400, 3400)}
             equipment={leftPlayers.map(player => player.state.equip_value).reduce((pre, now) => pre + now, 0)}
             money={leftPlayers.map(player => player.state.money).reduce((pre, now) => pre + now, 0)}
             show={isFreezetime && !forceHide}
-          /> */}
+          />
         </div>
         <div className={"boxes right"}>
           <UtilityLevel side={right.side} players={game.players} show={isFreezetime && !forceHide} />
           <SideBox side="right" hide={forceHide} />
-          {/* <MoneyBox
+          <MoneyBox
             team={right.side}
             side="right"
             loss={Math.min(right.consecutive_round_losses * 500 + 1400, 3400)}
             equipment={rightPlayers.map(player => player.state.equip_value).reduce((pre, now) => pre + now, 0)}
             money={rightPlayers.map(player => player.state.money).reduce((pre, now) => pre + now, 0)}
             show={isFreezetime && !forceHide}
-          /> */}
+          />
         </div>
       </div>
     );

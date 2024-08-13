@@ -110,9 +110,10 @@
         color: white;
         font-size: 18px;
         font-weight: 600;
+        border-radius: var(--panel-radius);
     }  
     .player {
-        height: 105px;
+        height: 98px;
         margin-bottom: 4px;
         display: flex;
         flex-direction: row;
@@ -146,6 +147,8 @@
                 flex: 2.5;
                 min-width: 0;
                 background-color: var(--sub-panel-color);
+                border-top-left-radius: var(--panel-radius);
+                border-top-right-radius: var(--panel-radius);
                 .roundkills-container-dead {
                     display: none;
                 }
@@ -245,25 +248,24 @@
                             width: 25px;
                             height: 25px;
                             position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             svg {
                                 max-height: 23px;
                                 max-width: 23px;
                             }
                         }
                         .player_round_kills_text {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            position: absolute;
                             width: 25px;
                             height: 25px;
                             font-size: 14px;
                             font-weight: 600;
                             color: white;
-                            display: flex;
-                            border-radius: 15px;
-                            justify-content: center;
-                            align-items: center;
-                            position: absolute;
                           }
 
                     }
@@ -372,10 +374,8 @@
                         position: absolute;
                         width: 25px;
                         height: 25px;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
+                        display: flex;
+                        justify-content: center;
                         svg {
                             max-height: 23px;
                             max-width: 23px;
@@ -437,10 +437,13 @@
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            flex: 1;
+            flex: 1 1;
             position: relative;
             background-color: var(--sub-panel-color);
             z-index: -2;
+            border-bottom-left-radius: var(--panel-radius);
+            border-bottom-right-radius: var(--panel-radius);
+            overflow: hidden;
             .roundDMG {
                 display: none;
             }

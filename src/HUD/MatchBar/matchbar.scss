@@ -41,7 +41,7 @@
 		position: relative;
 		width: 14%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.98);
+		background-color: var(--sub-panel-color);
 		justify-content: center;
         &.no-bo {
             height: 65px;
@@ -120,7 +120,7 @@
 			align-items: center;
 			overflow: hidden;
 			justify-content: center;
-			background-color: rgba(0, 0, 0, 0.98);
+			background-color: var(--sub-panel-color);
 			img {
 				max-width: 90%;
 				max-height: 65%;
@@ -145,7 +145,7 @@
 		font-weight: bold;
 		font-size: 28px;
 		text-align: center;
-		background-color: rgba(0, 0, 0, 0.98);
+		background-color: var(--sub-panel-color);
 	}
 	.score {
 		display: flex;
@@ -156,7 +156,7 @@
 		justify-content: center;
 		font-weight: 600;
 		font-size: 44px;
-		background-color: rgba(0, 0, 0, 0.98);
+		background-color: var(--sub-panel-color);
 	}
 	.bar {
 		display: flex;
@@ -176,9 +176,9 @@
 	position: fixed;
 	display: none;
 	opacity: 1;
-	width: 288px;
+	width: 287px;
 	height: 50px;
-	top: 75px;
+	top: 65px;
 	align-items: center;
 	color: black;
 	justify-content: center;
@@ -203,13 +203,19 @@
 	position: fixed;
 	display: flex;
 	opacity: 1;
-	width: 288px;
+	width: 287px;
 	height: 49px;
-	top: 75px;
+	top: 65px;
 	align-items: center;
 	color: white;
     justify-content: center;
-    background-color: rgba(0,0,0,0.65);
+    background-color: var(--sub-panel-color);
+	.CT {
+		color: var(--color-new-ct);
+	}
+	.T {
+		color: var(--color-new-t);
+	}
 	.defuse_plant_bar {
 		height: 49px;
 		background-color: #3c3c3c;
@@ -247,11 +253,12 @@
 	flex-direction: row;
 	position: fixed;
 	justify-content: center;
-	top: 75px;
-	width: 650px;
+	top: 15px;
+	width: 260px;
 	height: 50px;
 	left: 50%;
 	transform: translateX(-50%);
+	gap: 65px;
 	.CT {
 		color: var(--color-new-ct);
 	}
@@ -333,20 +340,20 @@
 	}
 }
 .wins_box {
-	width: 77px;
+	width: 20px;
 	height: 7px;
 	margin-left: 2px;
 	margin-right: 2px;
-	box-sizing: border-box;
+	// box-sizing: border-box;
 }
 .wins_box.CT {
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(34, 34, 34, 0.877);
 }
 .wins_box.CT.win {
 	background-color: var(--color-new-ct);
 }
 .wins_box.T {
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(34, 34, 34, 0.877);
 }
 .wins_box.T.win {
 	background-color: var(--color-new-t);
